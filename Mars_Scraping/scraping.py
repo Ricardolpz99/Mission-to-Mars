@@ -96,11 +96,10 @@ def mars_facts():
     df.set_index('description', inplace=True)
     
     # Convert dataframe into HTML format, add bootstrap
-    return df.to_html(classes="table table-striped")
-    
+    return df.to_html(classes="table table-striped") 
 def hemispheres(browser):
     # 1. Use browser to visit the URL 
-    url = 'https://marshemispheres.com/'
+    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
 
     # 2. Create a list to hold the images and titles.
@@ -121,7 +120,7 @@ def hemispheres(browser):
             return None
 
         # create an absolute URL
-        full_img_url = f"https://astrogeology.usgs.gov/cache/{jpg_url}"
+        full_img_url = f"https://astrogeology.usgs.gov/{jpg_url}"
 
         # Create an empty dictionary
         hemispheres = {"img_url": full_img_url, 
@@ -141,3 +140,4 @@ if __name__ == "__main__":
     print(scrape_all())
 
 
+ 
